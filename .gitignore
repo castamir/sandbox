@@ -2,6 +2,7 @@ log/*
 temp/*
 libs/*
 
+*.lock
 .DS_Store
 !.gitignore
 !.htaccess
