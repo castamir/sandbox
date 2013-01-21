@@ -18,6 +18,13 @@
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/www/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/www/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/www/favicon.ico">
+
+	{#scripts}
+	<script src="{$basePath}/www/js/jquery.js"></script>
+	<script src="{$basePath}/www/js/netteForms.js"></script>
+	<script src="{$basePath}/www/js/main.js"></script>
+	{/#}
+        
 	{#head}{/#}
 </head>
 
@@ -27,11 +34,5 @@
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
 	{include #content}
-
-	{#scripts}
-	<script src="{$basePath}/www/js/jquery.js"></script>
-	<script src="{$basePath}/www/js/netteForms.js"></script>
-	<script src="{$basePath}/www/js/main.js"></script>
-	{/#}
 </body>
 </html>

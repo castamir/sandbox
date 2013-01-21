@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\FrontModule;
 
 use Nette,
 	Model,
