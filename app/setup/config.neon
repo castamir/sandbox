@@ -13,8 +13,7 @@ common:
 
 	nette:
 		application:
-			errorPresenter: Error
-
+			errorPresenter: "Front:Error"
 		database:
 			dsn: 'mysql:host=localhost;dbname=test'
 			user:

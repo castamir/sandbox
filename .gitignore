@@ -6,5 +6,5 @@ libs/*
 !.gitignore
 !.htaccess
 !web.config
-app/config/config.local.neon
+app/setup/config.local.neon
 /nbproject/private/
