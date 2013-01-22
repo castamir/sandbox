@@ -22,7 +22,7 @@ from http://nette.org/download or create new project using
 [Composer](http://doc.nette.org/composer):
 
 	curl -s http://getcomposer.org/installer | php
-	php composer.phar create-project nette/sandbox myApp
+	php composer.phar create-project nette/sandbox myApp dev-release-2.0.x
 	cd myApp
 
 Make directories `temp` and `log` writable. Navigate your browser
