@@ -1,3 +1,5 @@
+Slightly modified description from original nette/sandbox:
+
 Nette Framework Sandbox
 =======================
 
@@ -22,7 +24,7 @@ from http://nette.org/download or create new project using
 [Composer](http://doc.nette.org/composer):
 
 	curl -s http://getcomposer.org/installer | php
-	php composer.phar create-project nette/sandbox myApp dev-release-2.0.x
+	php composer.phar create-project castamir/sandbox myApp
 	cd myApp
 
 Make directories `temp` and `log` writable. Navigate your browser
@@ -31,7 +33,7 @@ you run `php -S localhost:8888 -t www` to start the webserver and
 then visit `http://localhost:8888` in your browser.
 
 
-It is CRITICAL that file `app/config/config.neon` & whole `app`, `log`
+It is CRITICAL that file `app/setup/config.neon` & whole `app`, `log`
 and `temp` directory are NOT accessible directly via a web browser! If you
 don't protect this directory from direct web access, anybody will be able to see
 your sensitive data. See [security warning](http://nette.org/security-warning).
