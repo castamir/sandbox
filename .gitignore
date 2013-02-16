@@ -2,6 +2,7 @@ log/*
 temp/*
 libs/*
 
+composer.lock
 .idea
 .DS_Store
 !.gitignore
