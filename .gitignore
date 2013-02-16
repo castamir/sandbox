@@ -2,6 +2,7 @@ log/*
 temp/*
 libs/*
 
+.idea
 .DS_Store
 !.gitignore
 !.htaccess
