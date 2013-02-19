@@ -17,6 +17,10 @@ $configurator->createRobotLoader()
 	->addDirectory(__DIR__ . '/../libs')
 	->register();
 
+$configurator->onCompile[] = function ($configurator, $compiler) {
+    $compiler->addExtension('dibi', new DibiNetteExtension);
+};
+
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/setup/config.neon');
 $configurator->addConfig(__DIR__ . '/setup/config.local.neon', $configurator::NONE); // none section

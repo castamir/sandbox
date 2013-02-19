@@ -5,31 +5,38 @@
 # http://nette.org/security-warning
 #
 common:
-	parameters:
+    parameters:
 
-	php:
-		date.timezone: Europe/Prague
-		# zlib.output_compression: yes
+    php:
+        date.timezone: Europe/Prague
+        # zlib.output_compression: yes
 
-	nette:
-		application:
-			errorPresenter: "Front:Error"
-		database:
-			dsn: 'mysql:host=localhost;dbname=test'
-			user:
-			password:
+    dibi:
+        host: %database.host%
+        username: %database.user%
+        password: %database.password%
+        database: %database.dbname%
+        lazy: TRUE
 
-		session:
-			expiration: 14 days
+    nette:
+        application:
+            errorPresenter: "Front:Error"
+        database:
+            dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
+            user: %database.user%
+            password: %database.password%
+
+        session:
+            expiration: 14 days
 
 
-	services:
-		authenticator: Authenticator
-		routerFactory: RouterFactory
-		router: @routerFactory::createRouter
+    services:
+        authenticator: Authenticator
+        routerFactory: RouterFactory
+        router: @routerFactory::createRouter
 
 
-	factories:
+    factories:
 
 
 production < common:
