@@ -2,6 +2,7 @@ log/*
 temp/*
 libs/*
 
+libs/autoload.php
 composer.lock
 .idea
 .DS_Store
