@@ -50,23 +50,6 @@
 		{ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
 		Nette Framework {=Nette\Framework::VERSION}</footer>
 
-    {control form}
-
-    {form form}
-        <table>
-            {foreach $form["question"]->components as $component}
-                <tr>
-                    {dump $component}
-                    <th>{label $component/}</th>
-                    <td>{input $component}</td>
-                </tr>
-            {/foreach}
-            <tr>
-                <th></th>
-                <td>{input "send"}</td>
-            </tr>
-        </table>
-    {/form}
 </div>
 
 <script src="http://jush.sourceforge.net/jush.js"></script>
