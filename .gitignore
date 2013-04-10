@@ -1,13 +1,15 @@
+.idea
+composer.lock
+
 log/*
 temp/*
 libs/*
+!libs/composer/
+!libs/netterobots.txt
+libs/composer/*
 
-libs/autoload.php
-composer.lock
-.idea
 .DS_Store
 !.gitignore
 !.htaccess
 !web.config
-app/setup/config.local.neon
-/nbproject/private/
+app/config/config.local.neon

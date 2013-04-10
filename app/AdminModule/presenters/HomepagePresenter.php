@@ -1,6 +1,7 @@
 <?php
 
-namespace FrontModule;
+
+namespace AdminModule;
 
 class HomepagePresenter extends BasePresenter
 {

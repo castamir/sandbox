@@ -1,13 +1,9 @@
 {
-	"name": "castamir/sandbox",
-	"description": "The sandbox is a modified version of nette/sandbox. Nette/sandbox is a pre-packaged Nette Framework project, basic configured structure for your application. This modified sandbox is little bit reorganized with module usage as default behavior.",
+	"name": "nette/sandbox",
+	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
 	"homepage": "http://nette.org",
 	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"authors": [
-		{
-			"name": "Miroslav Paulík",
-			"homepage": "http://blog.profitak.cz"
-		},
 		{
 			"name": "David Grudl",
 			"homepage": "http://davidgrudl.com"
@@ -18,12 +14,11 @@
 		}
 	],
 	"config": {
-		"vendor-dir": "libs"
+		"vendor-dir": "libs/composer"
 	},
 	"require": {
 		"php": ">= 5.3.0",
-		"nette/nette": ">= 2.0.7",
-        "dg/dibi": "@dev"
+		"nette/nette": ">= 2.0.7"
 	},
     "require-dev": {
         "nette/tester": "@dev"

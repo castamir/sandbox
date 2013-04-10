@@ -1,8 +1,6 @@
 <?php
 
-use Nette\Security,
-	Nette\Utils\Strings;
-
+use Nette\Security, Nette\Utils\Strings;
 
 /*
 CREATE TABLE users (
@@ -19,22 +17,21 @@ CREATE TABLE users (
  */
 class Authenticator extends Nette\Object implements Security\IAuthenticator
 {
+
 	/** @var Nette\Database\Connection */
 	private $database;
-
-
 
 	public function __construct(Nette\Database\Connection $database)
 	{
 		$this->database = $database;
 	}
 
-
-
 	/**
 	 * Performs an authentication.
-	 * @return Nette\Security\Identity
+	 *
+	 * @param array $credentials
 	 * @throws Nette\Security\AuthenticationException
+	 * @return Nette\Security\Identity
 	 */
 	public function authenticate(array $credentials)
 	{
@@ -50,22 +47,19 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 		}
 
 		unset($row->password);
+
 		return new Security\Identity($row->id, $row->role, $row->toArray());
 	}
 
-
-
 	/**
 	 * Computes salted password hash.
-	 * @param  string
+	 *
+	 * @param  string $password
 	 * @return string
 	 */
-	public static function calculateHash($password, $salt = NULL)
+	public static function calculateHash($password)
 	{
-		if ($password === Strings::upper($password)) { // perhaps caps lock is on
-			$password = Strings::lower($password);
-		}
-		return crypt($password, $salt ?: '$2a$07$' . Strings::random(22));
+		return crypt($password, '$2a$07$');
 	}
 
 }

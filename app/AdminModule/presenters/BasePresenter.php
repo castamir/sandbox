@@ -1,7 +1,6 @@
 <?php
 
-
-namespace FrontModule;
+namespace AdminModule;
 
 abstract class BasePresenter extends \BasePresenter
 {

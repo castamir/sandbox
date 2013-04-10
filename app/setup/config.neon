@@ -11,20 +11,14 @@ common:
         date.timezone: Europe/Prague
         # zlib.output_compression: yes
 
-    dibi:
-        host: %database.host%
-        username: %database.user%
-        password: %database.password%
-        database: %database.dbname%
-        lazy: TRUE
-
     nette:
         application:
-            errorPresenter: "Front:Error"
+#            errorPresenter: Error
+
         database:
-            dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
-            user: %database.user%
-            password: %database.password%
+            dsn: 'mysql:host=localhost;dbname=test'
+            user:
+            password:
 
         session:
             expiration: 14 days
