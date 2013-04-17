@@ -24,4 +24,8 @@ $configurator->addConfig(__DIR__ . '/setup/config.neon');
 $configurator->addConfig(__DIR__ . '/setup/config.local.neon');
 $container = $configurator->createContainer();
 
+$container->application->onRequest[] = function ($application, $request) {
+    QOP\Application\SetErrorPresenter::setErrorPresenter($application, $request);
+};
+
 return $container;
