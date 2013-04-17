@@ -7,23 +7,23 @@
 parameters:
 
 php:
-	date.timezone: Europe/Prague
-	# zlib.output_compression: yes
+    date.timezone: Europe/Prague
+    # zlib.output_compression: yes
 
 nette:
-	application:
-		errorPresenter: Error
-		mapping:
-			*: App\*Module\*Presenter
+    application:
+        errorPresenter: Error
+        mapping:
+            *: App\*Module\*Presenter
 
-	session:
-		expiration: 14 days
+    session:
+        expiration: 14 days
 
 
 services:
-	- Model\UserManager
-	- App\RouterFactory
-	router: @App\RouterFactory::createRouter
+    - Model\UserManager
+    - App\RouterFactory
+    router: @App\RouterFactory::createRouter
 
 
 factories:
