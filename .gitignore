@@ -4,9 +4,6 @@ composer.lock
 log/*
 temp/*
 libs/*
-libs/composer/*
-!libs/netterobots.txt
-!libs/composer/autoload.php
 
 .DS_Store
 !.gitignore
