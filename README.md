@@ -13,3 +13,9 @@ Main differences
   - app/config => app/setup
   - app/modules for custom app modules
   - app/services containf all services defined in config.neon
+
+Install
+----
+via Composer
+
+    composer create-project castamir/sandbox sandbox
