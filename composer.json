@@ -1,5 +1,5 @@
 {
-    "name": "castamir/app",
+    "name": "castamir/deploy",
     "description": "This custom extension of nette/sandbox. It has predefined admin and Front modules and files are slightly reorganized",
     "homepage": "http://nette.org",
     "license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
