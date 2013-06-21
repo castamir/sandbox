@@ -26,5 +26,11 @@
     },
     "require-dev": {
         "nette/tester": "@dev"
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:castamir/deploy.git"
+        }
+    ]
 }
