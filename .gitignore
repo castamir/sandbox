@@ -4,8 +4,9 @@ composer.lock
 log/*
 temp/*
 libs/*
-!libs/netterobots.txt
+storage/*
 
+!libs/netterobots.txt
 .DS_Store
 !.gitignore
 !.htaccess
