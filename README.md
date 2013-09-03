@@ -20,7 +20,7 @@ Install
 ----
 via Composer
 
-    composer create-project castamir/sandbox sandbox dev-2.1dev
+    composer create-project castamir/sandbox sandbox
 
 Licence
 ----
