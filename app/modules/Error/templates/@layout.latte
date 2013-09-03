@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="robots" content="{$robots}" n:ifset="$robots">
+
+    <title>{include #title|striptags|upper}</title>
+
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/layout.css">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/jquery-ui/jquery-ui-1.10.3.custom.min.css">
+    <link rel="shortcut icon" href="{$basePath}/favicon2.ico">
+    {block styles}{/block}
+
+    {block scripts}
+        <script src="{$basePath}/js/jquery-1.9.1.js"></script>
+        <script src="{$basePath}/js/jquery-ui-1.10.3.custom.min.js"></script>
+    {/block}
+
+    <style>
+        body {
+            color: #003366;
+        }
+    </style>
+</head>
+
+<body>
+    <script> document.documentElement.className += ' js' </script>
+
+    {include #content}
+</body>
+</html>
