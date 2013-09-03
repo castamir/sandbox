@@ -3,7 +3,7 @@ composer.lock
 
 log/*
 temp/*
-libs/*
+libs/composer/*
 storage/*
 
 !libs/netterobots.txt
