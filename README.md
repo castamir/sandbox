@@ -10,12 +10,18 @@ Main differences
   - changed composer vendor dir to libs/composer
   - netterobots.txt disallows libs/composer
 - app dir reorganized
-  - app/config => app/setup
   - app/modules for custom app modules
-  - app/services containf all services defined in config.neon
+  - app/services contains all services defined in config.neon
+- custom dependencies
+  - LeanMapper
+  - DatePicker
 
 Install
 ----
 via Composer
 
     composer create-project castamir/sandbox sandbox dev-2.1dev
+
+Licence
+----
+MIT
