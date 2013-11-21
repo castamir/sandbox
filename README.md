@@ -1,4 +1,4 @@
-sandbox for nette 2.1
+sandbox for nette 2.1 (dev)
 =======
 Original nette/sandbox: https://github.com/nette/sandbox
 
