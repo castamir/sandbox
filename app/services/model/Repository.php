@@ -4,6 +4,7 @@ namespace Model;
 
 use DibiFluent;
 use LeanMapper\Connection;
+use LeanMapper\Entity;
 use LeanMapper\Exception\InvalidArgumentException;
 use LeanMapper\Fluent;
 use LeanMapper\IMapper;
@@ -58,6 +59,7 @@ abstract class Repository extends LR
 	{
 		$translated = $this->connection->translate($query->_export());
 
+		/** @var Entity $entityClass */
 		$entityClass = $this->mapper->getEntityClass($this->getTable());
 		$reflection = $entityClass::getReflection($this->mapper);
 		foreach ($reflection->getEntityProperties() as $property) {

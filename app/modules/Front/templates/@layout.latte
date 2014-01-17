@@ -1,46 +1,10 @@
 {layout '../../App/templates/@layout.latte'}
 
 {block topMenu}
-    <table class="full">
-        <tr>
-            <th class="right">Zlato:</th>
-            <td>{$resources->gold|number:0:',':' '}</td>
-            <th class="right">Jídlo:</th>
-            <td>{$resources->meat|number:0:',':' '}</td>
-            <th class="right">Drahokamy:</th>
-            <td>{$resources->stone|number:0:',':' '}</td>
-            <th class="right">Ruda:</th>
-            <td>{$resources->iron|number:0:',':' '}</td>
-            <th class="right">Dřevo:</th>
-            <td>{$resources->wood|number:0:',':' '}</td>
-            <th class="right">Domů:</th>
-            <td>{$resources->houses|number:0:',':' '} / {$resources->housesCapacity|number:0:',':' '}</td>
-            <td class="right">Přihlášen jako:</td>
-            <th>{$profile->username}</th>
-        </tr>
-    </table>
 {/block}
 
 {block menu}
-    <ul>
-        <li><a n:href="Jednotky:">Jednotky</a></li>
-        <li><a n:href="Mise:">Mise</a></li>
-        <li><a n:href="Statistiky:">Statistiky</a></li>
-        {*<li><a n:href="Nastaveni:">Nastavení</a></li>*}
-        <li><a n:href="Sign:out">Odhlásit</a></li>
-    </ul>
 {/block}
 
 {block layoutStyles}
-    <style>
-        .right {
-            text-align: right;
-        }
-        table.full {
-            width: 100%;
-        }
-        table.full td{
-            width: 15%;
-        }
-    </style>
 {/block}

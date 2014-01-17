@@ -56,5 +56,4 @@ webloader:
                 - http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/i18n/jquery-ui-i18n.min.js
             files:
                 - %libsDir%/composer/nette/nette/client-side/netteForms.js
-                - %libsDir%/composer/castamir/datepicker/client-side/datepicker-init.js
                 - {files: ["*.js"], from: %wwwDir%/js} # Nette\Utils\Finder support
