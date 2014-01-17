@@ -1,14 +1,8 @@
-#
-# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
-#
-# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
-# http://nette.org/security-warning
-#
 parameters:
+    libsDir: %appDir%/../libs
 
 php:
     date.timezone: Europe/Prague
-    # zlib.output_compression: yes
 
 nette:
     application:
@@ -16,13 +10,51 @@ nette:
         mapping:
             *: App\*Module\*Presenter
 
+    mailer:
+        smtp: %mailer.smtp%
+        host: %mailer.host%
+        port: %mailer.port%
+        username: %mailer.username%
+        password: %mailer.password%
+        secure: %mailer.secure%
+
     session:
         expiration: 14 days
+        name: netiso
 
+extensions:
+    webloader: WebLoader\Nette\Extension
 
 services:
     - App\RouterFactory
     router: @App\RouterFactory::createRouter
 
+    wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
+    cssMin: Services\CssMin
+
+    - Services\Security\Authenticator
+
+    - LeanMapper\Connection(%db%)
+    - Model\StandardMapper
 
 factories:
+
+webloader:
+    css:
+        default:
+            files:
+                - screen.css
+                - tables.css
+            filters:
+                - @wlCssFilter
+                - @cssMin
+    js:
+        default:
+            remoteFiles:
+                - http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js
+                - http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js
+                - http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/i18n/jquery-ui-i18n.min.js
+            files:
+                - %libsDir%/composer/nette/nette/client-side/netteForms.js
+                - %libsDir%/composer/castamir/datepicker/client-side/datepicker-init.js
+                - {files: ["*.js"], from: %wwwDir%/js} # Nette\Utils\Finder support

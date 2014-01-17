@@ -5,11 +5,13 @@ use Nette\Configurator;
 
 require __DIR__ . '/../libs/composer/autoload.php';
 
+\Nette\Diagnostics\Debugger::$maxDepth = 6;
 
 $configurator = new Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
-//$configurator->setDebugMode(TRUE);
+$configurator->setDebugMode(TRUE);
+//$configurator->setDebugMode(FALSE);
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Specify folder for cache
@@ -23,6 +25,7 @@ $configurator->createRobotLoader()
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
+$configurator->addConfig(__DIR__ . '/config/config.model.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 

@@ -1,12 +1,18 @@
 parameters:
-
-nette:
-	database:
-		dsn: 'mysql:host=localhost;dbname=test'
-		user:
-		password:
-		options:
-			lazy: yes
+    db:
+        host: 127.0.0.1
+        driver: mysql
+        database: netiso_new
+        user: root
+        password:
+        profiler: TRUE
+    mailer:
+        smtp: true
+        host: smtp.gmail.com
+        port: 465
+        username: miras.paulik@gmail.com
+        password: mirasman
+        secure: ssl
 
 services:
 

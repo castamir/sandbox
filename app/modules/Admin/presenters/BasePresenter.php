@@ -5,7 +5,7 @@ namespace App\AdminModule;
 /**
  * Base presenter for all application presenters.
  */
-abstract class BasePresenter extends \BasePresenter
+abstract class BasePresenter extends \App\BasePresenter
 {
 
 }

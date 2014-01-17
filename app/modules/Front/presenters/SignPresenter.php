@@ -2,14 +2,30 @@
 
 namespace App\FrontModule;
 
+use App\BasePresenter as Presenter;
+use LeanMapper\Fluent;
 use Nette;
 use Model;
+use Nette\Application\UI\Form;
+use Services\Security\Authenticator;
 
 /**
  * Sign in/out presenters.
  */
-class SignPresenter extends BasePresenter
+class SignPresenter extends Presenter
 {
+	public function actionIn()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->redirect("Homepage:");
+		}
+	}
+
+	public function actionHash()
+	{
+		dump(Authenticator::calculateHash("mirasman"));
+		die;
+	}
 
 	/**
 	 * Sign-in form factory.
@@ -19,13 +35,12 @@ class SignPresenter extends BasePresenter
 	protected function createComponentSignInForm()
 	{
 		$form = new Nette\Application\UI\Form;
-		$form->addText('username', 'Username:')->setRequired('Please enter your username.');
+		$form->addText('username', 'Login:')->setRequired('Zadejte Vaše uživatelské jméno.');
+		$form->addPassword('password', 'Heslo:')->setRequired('Zadejte prosím heslo.');
 
-		$form->addPassword('password', 'Password:')->setRequired('Please enter your password.');
+		$form->addCheckbox('remember', 'Zapamatovat');
 
-		$form->addCheckbox('remember', 'Keep me signed in');
-
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', 'Přihlásit');
 
 		// call method signInFormSucceeded() on success
 		$form->onSuccess[] = $this->signInFormSucceeded;
@@ -33,7 +48,7 @@ class SignPresenter extends BasePresenter
 		return $form;
 	}
 
-	public function signInFormSucceeded($form)
+	public function signInFormSucceeded(Form $form)
 	{
 		$values = $form->getValues();
 
@@ -46,16 +61,15 @@ class SignPresenter extends BasePresenter
 		try {
 			$this->getUser()->login($values->username, $values->password);
 			$this->redirect('Homepage:');
-
 		} catch (Nette\Security\AuthenticationException $e) {
-			$form->addError($e->getMessage());
+			$this->flashMessage($e->getMessage());
 		}
 	}
 
 	public function actionOut()
 	{
 		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
+		$this->flashMessage('Odhlášení proběhlo úspěšně.');
 		$this->redirect('in');
 	}
 

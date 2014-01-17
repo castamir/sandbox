@@ -1,0 +1,5 @@
+services:
+
+    - Model\Tables\UserRepository
+    - Model\Tables\Fakturace\ZakaznikRepository
+    - Model\Tables\RoleRepository

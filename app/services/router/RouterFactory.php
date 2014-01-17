@@ -19,8 +19,10 @@ class RouterFactory
 	public function createRouter()
 	{
 		$router = new RouteList();
+		$router[] = $module = new RouteList('Cron');
+		$module[] = new Route('cron/<presenter>/<action>[/<id>]', 'Homepage:default');
 		$router[] = $module = new RouteList('Admin');
-		$module[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
+		$module[] = new Route('admin/<presenter>/<action>[/<id>]', 'Homepage:default');
 		$router[] = $module = new RouteList('Front');
 		$module[] = new Route('index.php', 'Homepage:default', Route::ONE_WAY);
 		$module[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');

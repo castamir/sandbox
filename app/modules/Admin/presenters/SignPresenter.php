@@ -4,6 +4,7 @@ namespace App\AdminModule;
 
 use Nette;
 use Model;
+use Nette\Application\UI\Form;
 
 /**
  * Sign in/out presenters.
@@ -33,22 +34,21 @@ class SignPresenter extends BasePresenter
 		return $form;
 	}
 
-	public function signInFormSucceeded($form)
+	public function signInFormSucceeded(Form $form)
 	{
 		$values = $form->getValues();
 
 		if ($values->remember) {
 			$this->getUser()->setExpiration('14 days', FALSE);
 		} else {
-			$this->getUser()->setExpiration('20 minutes', TRUE);
+			$this->getUser()->setExpiration('30 minutes', TRUE);
 		}
 
 		try {
 			$this->getUser()->login($values->username, $values->password);
 			$this->redirect('Homepage:');
-
 		} catch (Nette\Security\AuthenticationException $e) {
-			$form->addError($e->getMessage());
+			$this->flashMessage($e->getMessage());
 		}
 	}
 
